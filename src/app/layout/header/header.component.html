@@ -1,0 +1,42 @@
+<header class="main-header">
+    <a href="javascript:void(0)" class="logo" title="Senseonics">
+      <span class="logo-mini"><img class="logomini" src="../../../../assets/images/logomini.jpg" style="height: 50px;" /></span>
+      <span class="logo-lg"><img src="../../../../assets/images/logo.png" style="height: 40px;margin-top: -4px;" /></span>
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+      <a style="background-color:rgba(0,0,0,.125)" href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <a href="javascript:void(0)" style="margin:10px 15px;color:#fff;font-size: 20px;display: inline-block;">
+        <span class="">P3HP Smart App</span>
+      </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown user user-menu" id="userdialog" (click)="openToggle()">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="userlink">
+              <img src="../../../../assets/images/profile_1.png" class="user-image hidden-xs">
+              <span class="hidden-xs">{{ 'Hi ' + 'Test'  + '!'}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <img src="../../../../assets/images/profile_1.png" class="img-circle" alt="User Image">
+                <p>
+                  {{ 'Test'}}
+                </p>
+              </li>
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a [routerLink]="['/currentuser/profile']" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a (click)="Logout()" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+  
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
