@@ -6,7 +6,6 @@ import { Test1Component } from './test1/test1.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/test/test1',
         component: Test1Component
     },
     {
