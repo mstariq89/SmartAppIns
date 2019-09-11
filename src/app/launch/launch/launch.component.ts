@@ -1,3 +1,4 @@
+/// <reference types="@types/fhir-js-client" />
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -21,6 +22,7 @@ export class LaunchComponent implements OnInit {
       client: clientSettings,
     };
   
+    console.log('Start in Authorize');
     FHIR.oauth2.authorize(oauth2Configuration, (authError) => {
       console.log('Error in Authorize');
     });

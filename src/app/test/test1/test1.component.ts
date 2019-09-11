@@ -1,3 +1,4 @@
+/// <reference types="@types/fhir-js-client" />
 import { Component, OnInit } from '@angular/core';
 
 @Component({
