@@ -13,55 +13,7 @@
 <!-- https://github.com/cerner/fhir-client-cerner-additions -->
 <script src='./assets/js/fhir-client-cerner-additions-1.0.0.js'></script>
 <body class="hold-transition skin-blue sidebar-mini fixed login-page">
-    <h1>Medications for <span id="name"></span></h1>
-    <ul id="med_list"></ul>
   <app-root>
   </app-root>
-<script src="polyfills-es5.3aa54d3e5134f5b5b842.js" nomodule defer></script><script src="polyfills-es2015.fd917e7c3ed57f282ee5.js" type="module"></script><script src="scripts.3858cf6260c9ba904da7.js" defer></script><script src="runtime-es2015.24b02acc1f369d9b9f37.js" type="module"></script><script src="main-es2015.33d9fd95ca2306f22eee.js" type="module"></script><script src="runtime-es5.24b02acc1f369d9b9f37.js" nomodule defer></script><script src="main-es5.33d9fd95ca2306f22eee.js" nomodule defer></script></body>
-<script type="text/javascript">
-  function getPatientName (pt) {
-      if (pt.name) {
-          var names = pt.name.map(function(name) {
-              return name.given.join(" ") + " " + name.family.join(" ");
-          });
-          return names.join(" / ")
-      } else {
-          return "anonymous";
-      }
-  }
-
-  function getMedicationName (medCodings) {
-      var coding = medCodings.find(function(c){
-          return c.system == "http://www.nlm.nih.gov/research/umls/rxnorm";
-      });
-
-      return coding && coding.display || "Unnamed Medication(TM)"
-  }
-
-  function displayPatient (pt) {
-      document.getElementById('name').innerHTML = getPatientName(pt);
-  }
-
-  var med_list = document.getElementById('med_list');
-
-  function displayMedication (medCodings) {
-      med_list.innerHTML += "<li> " + getMedicationName(medCodings) + "</li>";
-  }                
-
-  FHIR.oauth2.ready(function(smart){
-      smart.patient.read().then(function(pt) {
-          displayPatient (pt);
-      });
-      smart.patient.api.fetchAllWithReferences({type: "MedicationOrder"},["MedicationOrder.medicationReference"]).then(function(results, refs) {
-         results.forEach(function(prescription){
-              if (prescription.medicationCodeableConcept) {
-                  displayMedication(prescription.medicationCodeableConcept.coding);
-              } else if (prescription.medicationReference) {
-                  var med = refs(prescription, prescription.medicationReference);
-                  displayMedication(med && med.code.coding || []);
-              }
-         });
-      });
-  });
-</script>
+<script src="polyfills-es5.3aa54d3e5134f5b5b842.js" nomodule defer></script><script src="polyfills-es2015.fd917e7c3ed57f282ee5.js" type="module"></script><script src="scripts.3858cf6260c9ba904da7.js" defer></script><script src="runtime-es2015.24b02acc1f369d9b9f37.js" type="module"></script><script src="main-es2015.59666ccf3bb132de6d1c.js" type="module"></script><script src="runtime-es5.24b02acc1f369d9b9f37.js" nomodule defer></script><script src="main-es5.59666ccf3bb132de6d1c.js" nomodule defer></script></body>
 </html>
